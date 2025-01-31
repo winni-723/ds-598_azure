@@ -1,0 +1,9 @@
+{
+	"name": "DS598Winni",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "010ce9a7-f385-4700-914f-99b7332ef69d",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}
