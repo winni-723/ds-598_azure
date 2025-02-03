@@ -25,6 +25,10 @@
 			"appid": {
 				"type": "string",
 				"defaultValue": "469a42d10f53a9d772f37cb07942e59d"
+			},
+			"dataType": {
+				"type": "string",
+				"defaultValue": "hour"
 			}
 		},
 		"annotations": [],
