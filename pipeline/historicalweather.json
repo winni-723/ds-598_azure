@@ -9,13 +9,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@range(1,52)",
+						"value": "@range(0,pipeline().parameters.weeksAgo)",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Copy data1_test",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -40,7 +40,8 @@
 								"sink": {
 									"type": "JsonSink",
 									"storeSettings": {
-										"type": "AzureBlobStorageWriteSettings"
+										"type": "AzureBlobStorageWriteSettings",
+										"copyBehavior": "PreserveHierarchy"
 									},
 									"formatSettings": {
 										"type": "JsonWriteSettings"
@@ -51,7 +52,10 @@
 							"inputs": [
 								{
 									"referenceName": "historicalweather",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"appid": "469a42d10f53a9d772f37cb07942e59d"
+									}
 								}
 							],
 							"outputs": [
@@ -65,6 +69,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"weeksAgo": {
+				"type": "int",
+				"defaultValue": 52
+			}
+		},
 		"annotations": []
 	}
 }
