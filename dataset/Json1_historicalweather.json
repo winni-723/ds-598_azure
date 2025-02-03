@@ -1,0 +1,19 @@
+{
+	"name": "Json1_historicalweather",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "bronze",
+				"container": "historicalweather"
+			}
+		},
+		"schema": {}
+	}
+}
