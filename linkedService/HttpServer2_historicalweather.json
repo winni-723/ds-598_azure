@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "http://api.openweathermap.org/",
+			"url": "https://history.openweathermap.org/data/2.5/history/city",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
