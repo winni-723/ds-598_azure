@@ -1,0 +1,40 @@
+{
+	"name": "airpollu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer2_airpollution",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"lat": {
+				"type": "string",
+				"defaultValue": "42.3601"
+			},
+			"lon": {
+				"type": "string",
+				"defaultValue": "-71.0589"
+			},
+			"start": {
+				"type": "string",
+				"defaultValue": "1738349994"
+			},
+			"end": {
+				"type": "string",
+				"defaultValue": "1707004068"
+			},
+			"appid": {
+				"type": "string",
+				"defaultValue": "469a42d10f53a9d772f37cb07942e59d"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}"
+			}
+		},
+		"schema": {}
+	}
+}
