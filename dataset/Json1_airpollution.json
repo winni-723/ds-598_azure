@@ -10,8 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "airpollotion ",
 				"folderPath": "bronze",
-				"container": "airpollution"
+				"container": "ds598hw"
 			}
 		},
 		"schema": {}
