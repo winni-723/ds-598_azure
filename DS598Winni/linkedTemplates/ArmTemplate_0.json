@@ -143,7 +143,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "airpollotion ",
+						"fileName": "airpollution",
 						"folderPath": "bronze",
 						"container": "ds598hw"
 					}
@@ -168,7 +168,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "historicalweather",
+						"fileName": "historical_weather",
 						"folderPath": "bronze",
 						"container": "ds598hw"
 					}
