@@ -113,7 +113,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "ForEach1",
+						"name": "ForEach-historicaldata",
 						"type": "ForEach",
 						"dependsOn": [],
 						"userProperties": [],
@@ -122,7 +122,7 @@
 								"value": "@range(0,pipeline().parameters.weeksAgo)",
 								"type": "Expression"
 							},
-							"isSequential": true,
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "Copy data1_test",
@@ -163,6 +163,10 @@
 											"referenceName": "historicalweather",
 											"type": "DatasetReference",
 											"parameters": {
+												"lat": "42.3601",
+												"lon": "-71.0589",
+												"start": "@div(sub(ticks(addDays(utcNow(), mul(-7, add(item(), 1)))), ticks('1970-01-01T00:00:00Z')), 10000000)",
+												"end": "@div(sub(ticks(addDays(utcNow(), mul(-7, item()))), ticks('1970-01-01T00:00:00Z')), 10000000)",
 												"appid": "469a42d10f53a9d772f37cb07942e59d",
 												"dataType": "hour"
 											}
@@ -210,8 +214,9 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "airpollotion ",
 						"folderPath": "bronze",
-						"container": "airpollution"
+						"container": "ds598hw"
 					}
 				},
 				"schema": {}
@@ -226,7 +231,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage2",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -234,14 +239,15 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "historicalweather",
 						"folderPath": "bronze",
-						"container": "historicalweather"
+						"container": "ds598hw"
 					}
 				},
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{
