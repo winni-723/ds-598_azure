@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "historicalweather",
-				"folderPath": "bronze",
+				"folderPath": "bronze_historicalweather",
 				"container": "ds598hw"
 			}
 		},
