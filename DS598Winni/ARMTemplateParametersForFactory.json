@@ -14,9 +14,6 @@
 		"WinniGitHub_credential": {
 			"value": ""
 		},
-		"HttpServer1_properties_typeProperties_url": {
-			"value": "http://api.openweathermap.org/"
-		},
 		"HttpServer2_airpollution_properties_typeProperties_url": {
 			"value": "http://api.openweathermap.org/"
 		},

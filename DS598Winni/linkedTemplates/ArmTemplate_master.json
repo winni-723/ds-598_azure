@@ -19,10 +19,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'credential' of 'WinniGitHub'"
 		},
-		"HttpServer1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "http://api.openweathermap.org/"
-		},
 		"HttpServer2_airpollution_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://api.openweathermap.org/"
@@ -70,9 +66,6 @@
 					},
 					"WinniGitHub_credential": {
 						"value": "[parameters('WinniGitHub_credential')]"
-					},
-					"HttpServer1_properties_typeProperties_url": {
-						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
 					},
 					"HttpServer2_airpollution_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer2_airpollution_properties_typeProperties_url')]"
