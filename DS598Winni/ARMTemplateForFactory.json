@@ -210,8 +210,9 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "airpollution",
 						"folderPath": "bronze",
-						"container": "airpollution"
+						"container": "ds598hw"
 					}
 				},
 				"schema": {}
@@ -226,7 +227,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
+					"referenceName": "AzureBlobStorage2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -234,14 +235,15 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "historicalweather",
 						"folderPath": "bronze",
-						"container": "historicalweather"
+						"container": "ds598hw"
 					}
 				},
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
 			]
 		},
 		{
