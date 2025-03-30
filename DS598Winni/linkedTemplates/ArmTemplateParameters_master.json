@@ -11,8 +11,14 @@
 		"AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
+		"AzureDataLakeStorageopenweather_accountKey": {
+			"value": ""
+		},
 		"WinniGitHub_credential": {
 			"value": ""
+		},
+		"AzureDataLakeStorageopenweather_properties_typeProperties_url": {
+			"value": "https://ds598.dfs.core.windows.net/"
 		},
 		"HttpServer2_airpollution_properties_typeProperties_url": {
 			"value": "http://api.openweathermap.org/"
