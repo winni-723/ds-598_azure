@@ -12,7 +12,15 @@
 					"name": "airpollutiondataflow"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "weatherparquet",
+						"type": "DatasetReference"
+					},
+					"name": "airpollutionsilversink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "TimestampAndlocation"
@@ -25,6 +33,9 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "RenameandDrop"
 				}
 			],
 			"scriptLines": [
@@ -56,7 +67,44 @@
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> airpollutionflatten",
 				"TimestampAndlocation filter(!isNull(aqi) && length(toString(corrected_timestamp)) == 10) ~> RemoveInvalidRow",
-				"RemoveInvalidRow derive() ~> derivedColumn1"
+				"RemoveInvalidRow derive(date_time = toTimestamp(toLong(corrected_timestamp) * 1000),",
+				"          id = concat(location, '_', toString(corrected_timestamp)),",
+				"          co = round(co, 2),",
+				"          no = round(no, 2),",
+				"          o3 = round (o3, 2),",
+				"          so2 = round(so2, 2),",
+				"          pm2_5 = round(pm2_5, 2),",
+				"          pm10 = round(pm10, 2),",
+				"          nh3 = round(nh3, 2)) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          lon,",
+				"          lat,",
+				"          aqi,",
+				"          co,",
+				"          no,",
+				"          no2,",
+				"          o3,",
+				"          so2,",
+				"          pm2_5,",
+				"          pm10,",
+				"          nh3,",
+				"          corrected_timestamp,",
+				"          location,",
+				"          date_time,",
+				"          id",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> RenameandDrop",
+				"RenameandDrop sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:[''],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> airpollutionsilversink1"
 			]
 		}
 	}
