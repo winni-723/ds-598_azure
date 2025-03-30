@@ -130,7 +130,7 @@
 				"renameAndDrop sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
-				"     partitionFileNames:[''],",
+				"     partitionFileNames:['silver_weather'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
